@@ -4,7 +4,8 @@
   <!--
 al buscar por pais el path es "" y por eso es obligatorio usar el 
 [routerLinkActiveOptions]="{ exact: true }" -->
-  <li routerLink="porPais" routerLinkActive="active" class="list-group-item">
+
+  <li routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="list-group-item">
     Buscar país
   </li>
   <li routerLink="porRegion" routerLinkActive="active" class="list-group-item">

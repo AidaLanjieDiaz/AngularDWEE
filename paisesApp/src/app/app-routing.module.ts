@@ -8,7 +8,7 @@ import { VerPaisComponent } from './pais/pages/ver-pais/ver-pais.component';
 const ROUTES: Routes = [
   {
     //es el primer componente, cuando ponemos la URL del proyecto y nada más
-    path: 'porPais',
+    path: '',
     component: PorPaisComponent,
     pathMatch: 'full'
     },
@@ -24,11 +24,7 @@ const ROUTES: Routes = [
     path: 'verPais/:id',//cuando entre un /pais/id del pais que será dinámico
     component: VerPaisComponent
     },
-    {
-      path: '',//se coloca al final, si no es ninguna de las anteriores se viene a esta. También podría usar una 404Component
-      redirectTo: 'porPais',
-      pathMatch: 'full'
-    },
+    
     {
     path: '**',
     redirectTo: 'porPais',
