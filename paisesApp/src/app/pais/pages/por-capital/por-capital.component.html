@@ -1,1 +1,55 @@
-<p>por-capital works!</p>
+<div>
+    <h2>Por Capital</h2>
+    <hr />
+    <!-- busqueda -->
+    <div class="row">
+      <div class="col">
+        <form autocomplete="off">
+          <input
+            type="text"
+            name="termino"
+            class="form-control"
+            placeholder="Buscar capital ..."
+            [(ngModel)]="capital" (keyup.enter)="buscarCapi()"/>
+        </form>
+      </div>
+    </div>
+  
+    <div *ngIf="hayError" class="alert alert-danger">
+  No se encontró nada con el término {{ capital }}
+  </div>
+  
+   <!--  resultado -->
+    <div class="row" *ngFor="let capital of capitales; let i = index"> 
+      <div class="col">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Bandera</th>
+              <th>Nombre</th>
+              <th>Población</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="animate__animated animate__fadeIn animate__faster">
+              <td>{{ i }}</td>
+              <td>
+                <!-- imagen de la bandera correspondiente -->
+                <img class="small-flag img-fluid" src="{{capital.flags.png}}" />
+              </td>
+              <td>{{capital.name.common}}</td>
+              <td>{{capital.population}}</td>
+              <td>
+                <a [routerLink]="['/verPais',capital.cioc]" >Ver...</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+    
+  </div>
+  
