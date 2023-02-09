@@ -1,0 +1,67 @@
+<!-- <p> hola</p> -->
+<div *ngIf="!verPais; else divPais" class="alert alert-info">
+  Espere por favor...
+</div>
+<ng-template #divPais>
+  <div class="row">
+    <div class="col-12">
+      <h1>País: <small>{{verPais.name.common}}</small></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <h3>Bandera</h3>
+      <img src="{{verPais.flags.png}}" class="img-thumbnail img-fluid" />
+    </div>
+    <div class="col">
+      <h3>Información</h3>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Población</strong> {{verPais.population}}
+        </li>
+        <li class="list-group-item">
+          <strong>Código CCA2</strong> {{verPais.cca2}}
+        </li>
+        <li class="list-group-item">
+          <strong>Código CIOC</strong> {{verPais.cioc}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <h3>Traducciones</h3>
+  <div class="row">
+    <div class="col">
+      <span class="badge bg-primary me-2">{{
+        verPais.translations["ara"].common
+      }}</span>
+      <span class="badge bg-primary me-2">{{
+        verPais.translations["spa"].common
+      }}</span>
+      <span class="badge bg-primary me-2">{{
+        verPais.translations["fra"].common
+      }}</span>
+      <span class="badge bg-primary me-2">{{
+        verPais.translations["jpn"].common
+      }}</span>
+      <span class="badge bg-primary me-2">{{
+        verPais.translations["ita"].common
+      }}</span>
+      <span class="badge bg-primary me-2">{{
+        verPais.translations["cym"].common
+      }}</span>
+      <span class="badge bg-primary me-2">{{
+        verPais.translations["por"].common
+      }}</span>
+      <span class="badge bg-primary me-2">{{
+        verPais.translations["nld"].common
+      }}</span>
+      <span class="badge bg-primary me-2">{{
+        verPais.translations["swe"].common
+      }}</span>
+      <span class="badge bg-primary mr-2">{{
+        verPais.translations["rus"].common
+      }}</span>
+    </div>
+  </div>
+
+</ng-template> 

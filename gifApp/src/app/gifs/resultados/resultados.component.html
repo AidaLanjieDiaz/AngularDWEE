@@ -1,0 +1,44 @@
+<!-- <div class="row">
+  <div class="col-md-4 col-sm-6">
+  
+  <div class="card">
+
+    <div *ngFor="let resultado of resultados" class="col-md-4 col-sm-6">
+
+      <img [src]="resultado.source"/>
+      <img [src]="resultado.url"/>
+
+      <div class="card-body">
+        <p class="card-text"> prueba{{ resultado.title | uppercase }}</p>
+      </div>
+
+    </div>
+  
+  </div>
+  
+  </div>
+  </div> -->
+
+  <div *ngIf="resultados.length > 0 ; else noResultados" class="row">
+ 
+      <div *ngFor="let resultado of resultados" class="col-md-4 col-sm-6">
+        <!--<img src={{resultado.url}}/>-->
+        <div class="card">
+          <img src="{{resultado.images.original.url}}">
+          <div class="card-body">
+            <p class="card-text">{{ resultado.title }}</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <ng-template #noResultados>
+      
+      <div class="alert alert-info" role="alert">No hay Resultados</div>
+    </ng-template>
+    <div class="probando-aplicacion borrar">
+    <p>tamaño array resultado: {{ resultados.length }}</p>
+    </div>
+    
+    

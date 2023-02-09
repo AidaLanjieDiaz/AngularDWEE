@@ -1,0 +1,13 @@
+<h3 class="mt-4">Listado de Alumnos</h3>
+<div class="row">
+<h3 *ngIf="nombres.length > 0; else noAlumnos">Alumnos</h3>
+<ng-template #noAlumnos>
+<div class="alert alert-info" role="alert">
+No hay alumnos
+</div>
+</ng-template>
+<div class="list-group">
+<a href="#" *ngFor="let nombre of nombres;let i=index" (click)="completada(nombre)"
+class="list-group-item list-group-item-action">{{i}}.{{nombre}}</a>
+</div>
+</div>
