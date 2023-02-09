@@ -29,14 +29,13 @@ export class PorPaisComponent {
   console.log("ERROR" + err); }
   });
  
- /*  esto desaparece ya que ahora se hace aqui en el subscribe, en vez de en el servidor */
+}
+ 
+/*  esto desaparece ya que ahora se hace aqui en el subscribe, en vez de en el servidor */
   /*  buscar () {
   return this.paisService.buscarPais(this.pais);
  } 
  get elements() {
   return this.paisService.resultados; */
-  
-}
- 
 
 }
