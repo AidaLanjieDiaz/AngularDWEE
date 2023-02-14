@@ -27,8 +27,8 @@ export class InfoPaginaService {
     });
 
     this.http.get<MiembroEquipo[]>(
-        'https://portfolio-29031-default-rtdb.europe-west1.firebasedatabase.app/Equipo.json'
-      )
+      'https://portfolio-29031-default-rtdb.europe-west1.firebasedatabase.app/Equipo.json'
+    )
       .subscribe((resp: MiembroEquipo[]) => {
         this.cargada = true;
         this._equipo = resp;
