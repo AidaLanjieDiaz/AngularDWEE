@@ -7,7 +7,7 @@ import { InfoPaginaService } from 'src/app/services/info-pagina.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-  private _info = {};
+  private _info: any = {};
   
   constructor(private infoPaginaService: InfoPaginaService) {
     this._info = infoPaginaService.infoPagina;
