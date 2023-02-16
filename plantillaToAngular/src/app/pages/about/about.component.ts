@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { InfoPaginaService } from 'src/app/services/info-pagina.service';
+import { MiembroEquipo } from '../../interfaces/miembro-equipo.interface';
 
 @Component({
   selector: 'app-about',
@@ -7,16 +8,17 @@ import { InfoPaginaService } from 'src/app/services/info-pagina.service';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
-  private _equipo: any = {};
-  
+  private _equipo: MiembroEquipo[] = [];
+     
   constructor(private infoPaginaService: InfoPaginaService) {
-    this._equipo = infoPaginaService.equipo;
+    
   }
 
-  public get equipo(): any {
+  public get equipo(): MiembroEquipo[] {
+    this._equipo = this.infoPaginaService.equipo;
     return this._equipo;
   }
-  public set equipo(value: any) {
+  public set equipo(value: MiembroEquipo[]) {
     this._equipo = value;
   }
   

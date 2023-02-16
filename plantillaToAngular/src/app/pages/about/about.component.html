@@ -1,3 +1,13 @@
+<div *ngFor="let miembro of equipo" class="ae-grid__item item-lg-4
+ae-kappa au-mb-3">
+<img [src]="miembro.url" alt="" class="au-mb-3">
+<h5 class="ae-u-bolder au-mt-2">{{miembro.nombre}}</h5>
+<p class="ae-u-bolder au-mb-3">{{miembro.subtitulo}}</p>
+<p class="au-lg-ta-left au-mb-3 au-pl-4 au-pr-4">{{miembro.frase}}</p>
+
+<a target="_blank" href="http://twitter.com/{{miembro.twitter}}" class="ae-
+u-bolder au-underline">@{{miembro.twitter}}</a>
+
 <!-- <div
   _ngcontent-ydk-c15=""
   class="ae-container-fluid ae-container-fluid--inner rk-main"
@@ -128,12 +138,4 @@
   </div>
 </div>
  -->
-<div *ngFor="let miembro of equipo" class="ae-grid__item item-lg-4
-ae-kappa au-mb-3">
-<img [src]="miembro.url" alt="" class="au-mb-3">
-<h5 class="ae-u-bolder au-mt-2">{{miembro.nombre}}</h5>
-<p class="ae-u-bolder au-mb-3">{{miembro.subtitulo}}</p>
-<p class="au-lg-ta-left au-mb-3 au-pl-4 au-pr-4">{{miembro.frase}}</p>
 
-<a target="_blank" href="http://twitter.com/{{miembro.twitter}}" class="ae-
-u-bolder au-underline">@{{miembro.twitter}}</a>

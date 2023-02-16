@@ -8,6 +8,7 @@ import { MiembroEquipo } from '../interfaces/miembro-equipo.interface';
 })
 export class InfoPaginaService {
   private _infoPagina: InfoPagina = {};
+  
   private _equipo: MiembroEquipo[] = [];
   private cargada = false;
   
@@ -19,6 +20,7 @@ export class InfoPaginaService {
         /* console.log(resp);
       console.log(resp['twitter']);
       console.log(resp.twitter); */
+      console.log(resp);
         this._infoPagina = resp;
       },
       error: (err) => {
@@ -35,10 +37,10 @@ export class InfoPaginaService {
       });
   }
 
-  public get infoPagina() {
+  public get infoPagina(): InfoPagina {
     return this._infoPagina;
   }
-  public set infoPagina(value) {
+  public set infoPagina(value: InfoPagina) {
     this._infoPagina = value;
   }
 

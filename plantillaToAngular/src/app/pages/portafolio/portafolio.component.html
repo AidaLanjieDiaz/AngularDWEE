@@ -1,7 +1,7 @@
 <section
   class="ae-container-fluid ae-container-fluid--inner loading rk-portfolio"
 >
-  <div align="center" *ngIf="productos.cargando">
+  <div align="center" *ngIf="cargando">
     <h2>Cargando</h2>
     <div class="loader loader--style1" title="0">
       <svg
@@ -54,7 +54,7 @@ c0-6.425,5.209-11.634,11.634-
   </div>
 
   <div
-    *ngIf="!productos.cargando"
+    *ngIf="!cargando"
     class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4"
   >
     <a

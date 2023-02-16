@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductosService } from 'src/app/services/productos.service';
+import { ProductoIdx } from '../../interfaces/producto-idx.interface';
 
 @Component({
   selector: 'app-portafolio',
@@ -7,18 +8,27 @@ import { ProductosService } from 'src/app/services/productos.service';
   styleUrls: ['./portafolio.component.css']
 })
 export class PortafolioComponent {
-  private _productos: any = {};
+  private _productos: ProductoIdx[] = [];
+  private _cargando: any = {};
  
   constructor(private productosService: ProductosService) {
-    this._productos = productosService.productosIdx;
-    
   }
 
-  public get productos(): any {
+  public get productos(): ProductoIdx[] {
+    this._productos = this.productosService.productosIdx;
     return this._productos;
   }
-  public set productos(value: any) {
+  public set productos(value: ProductoIdx[]) {
     this._productos = value;
   }
+
+  public get cargando(): any {
+    this._cargando = this.productosService.cargando;
+    return this._cargando;
+  }
+  public set cargando(value: any) {
+    this._cargando = value;
+  }
+
   
 }

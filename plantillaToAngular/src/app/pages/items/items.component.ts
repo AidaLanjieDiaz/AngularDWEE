@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Productos } from 'src/app/interfaces/productos.interface';
-
 import { ProductosService } from 'src/app/services/productos.service';
 
 @Component({
@@ -10,31 +9,32 @@ import { ProductosService } from 'src/app/services/productos.service';
   styleUrls: ['./items.component.css'],
 })
 export class ItemsComponent {
-  private _producto: any = {};
+  private _producto: Productos = {};
+  
   private _id: any = {};
   
   constructor(
     private route: ActivatedRoute,
-    public productoService: ProductosService
+    private productoService: ProductosService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.route.params.subscribe((parametros) => {
       this.id = parametros['id'];
 
       this.productoService
         .getProducto(this.id)
         .subscribe((resp: Productos) => {
-          this.producto = resp;
-          console.log('Dato recibido: ' + this.producto.producto);
+          this._producto = resp;
+          /* console.log('Dato recibido: ' + this.producto.producto); */
         });
     });
   }
 
-  public get producto(): any {
+  public get producto(): Productos {
     return this._producto;
   }
-  public set producto(value: any) {
+  public set producto(value: Productos) {
     this._producto = value;
   }
 
