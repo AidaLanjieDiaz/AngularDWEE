@@ -15,9 +15,17 @@ export class SearchComponent {
   constructor(
     private route: ActivatedRoute,
     private productoService: ProductosService
-  ) {}
+  ) {
+    
+  }
 
   public get productos(): ProductoIdx[] {
+    this.route.params.subscribe((parametros) => {
+      this.termino = parametros['termino'];
+
+      this.productoService.buscarProducto(this.termino)
+    });
+    
     return this._productos;
   }
   public set productos(value: ProductoIdx[]) {
@@ -31,12 +39,11 @@ export class SearchComponent {
     this._termino = value;
   }
 
-  ngOnInit() {
+  ngOnInit():void {
     this.route.params.subscribe((parametros) => {
       this.termino = parametros['termino'];
 
       this.productoService.buscarProducto(this.termino)
-        
     });
   }
   

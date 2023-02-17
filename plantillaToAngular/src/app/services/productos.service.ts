@@ -49,10 +49,34 @@ export class ProductosService {
     );
   }
 
-  buscarProducto(termino: string) {
-    this.filtrarProductos(termino);
-  }
+  private cargarProductos() {
+    return new Promise<void>((resolve, reject) => {
+    this.http.get<ProductoIdx[]>(
+    'https://angular-html-25cf9.firebaseio.com/productos_idx.json'
+    )
+    .subscribe((resp: ProductoIdx[]) => {
+    this.productosIdx = resp;
+    this.cargando = false;
+    resolve();
+    });
+    });
+    }
+    
+    buscarProducto(termino: string) {
+      if (this.productosIdx.length === 0) {
+      // cargar productos
+      this.cargarProductos().then(() => {
+      // ejecutar después de tener los productos
+      // Aplicar filtro
+      this.filtrarProductos(termino);
+      });
+      } else {
+      // aplicar el filtro
+      this.filtrarProductos(termino);
+      }
+      }
 
+      
   private filtrarProductos(termino: string) {
     // console.log(this.productos);
     this.productosFiltrado = [];
@@ -66,6 +90,7 @@ export class ProductosService {
         this.productosFiltrado.push(prod);
       }
     });
+    
   }
 
 }
